@@ -2,7 +2,6 @@
 
 An AI customer service agent for a fictional online shop, built on Salesforce **Agentforce** with **Agent Script** in the new Agentforce Builder. Customers ask where their order is, and the agent looks it up through a custom **Apex** action, but only after verifying that the customer's email matches the order.
 
-![Happy path conversation with reasoning trace](screenshots/01-happy-path.png)
 
 ## What it does
 
@@ -109,12 +108,3 @@ I also verified the Apex action directly with Execute Anonymous before connectin
 
 Salesforce Platform · Agentforce (Agent Script, new Agentforce Builder) · Apex (API v67.0) · Custom objects · Permission sets
 
-## Reproducing this project
-
-1. Sign up for a free [Agentforce Developer Edition](https://www.salesforce.com/agentforce/dev-tools/) org.
-2. Create the `Shop_Order__c` custom object with the fields listed above, and add sample records.
-3. Create a `Shop Order Access` permission set with full access to the object and fields, plus Apex class access to `GetOrderStatus`. Assign it to yourself.
-4. Deploy [apex/GetOrderStatus.cls](apex/GetOrderStatus.cls).
-5. In Agentforce Studio, create an agent from the Agentforce Service Agent template with a new agent user. Remove the unneeded subagents and create the Order Status subagent using [agent/instructions.md](agent/instructions.md).
-6. Assign the permission set to the agent's Einstein Agent user.
-7. Test in Preview using the scenarios above.
